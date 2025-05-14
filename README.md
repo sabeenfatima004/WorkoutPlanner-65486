@@ -24,3 +24,15 @@ This is a simple BMI-based workout planner built using Python.
 - Obese (30 and above)  
   Workout: 60 mins intense workout  
   Diet: Low-fat, avoid sugar
+
+## Updated version
+
+New Feature: 
+Based on the user's BMI, the app now recommends whether they should work out at home or go to the gym:
+
+- Underweight: Home workouts with focus on nutrition
+- Normal BMI:  Either home or gym
+- Overweight:  Gym workouts recommended for better support
+
+  
+
