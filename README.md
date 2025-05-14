@@ -1,7 +1,4 @@
 # WorkoutPlanner-65486
-
-# Workout Planner
-
 ## Name: Sabeen fatima 
 ## Student ID: 65486
 
