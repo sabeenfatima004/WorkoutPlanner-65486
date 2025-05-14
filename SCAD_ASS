@@ -1,94 +1,29 @@
-# def calculate_bmi(weight, height_cm):
-#     height_m = height_cm / 100
-#     bmi = weight / (height_m ** 2)
-#     return round(bmi, 2)
-
-# def suggest_plan(bmi):
-#     if bmi < 18.5:
-#         return ("Workout: Light walking or yoga (20 mins)", "Diet: Eat more — rice, nuts, milk")
-#     elif 18.5 <= bmi < 24.9:
-#         return ("Workout: Brisk walk or cycling (30 mins)", "Diet: Balanced meals — fruits, veggies, meat")
-#     elif 25 <= bmi < 29.9:
-#         return ("Workout: Fast walking or jogging (45 mins)", "Diet: Eat less sugar, more fiber")
-#     else:
-#         return ("Workout: Intense workout or gym (60 mins)", "Diet: Low-fat food, avoid junk")
-
-# def main():
-#     try:
-#         weight = float(input("Enter your weight in kg: "))
-#         height = float(input("Enter your height in cm: "))
-
-#         if weight <= 0 or height <= 0:
-#             raise ValueError("Weight and height must be positive numbers.")
-
-#         bmi = calculate_bmi(weight, height)
-#         workout, diet = suggest_plan(bmi)
-
-#         print(f"\nYour BMI is: {bmi}")
-#         print(f"Suggested {workout}")
-#         print(f"Suggested {diet}")
-
-#     except ValueError as ve:
-#         print(f"Invalid input: {ve}")
-#     except Exception as e:
-#         print(f"An unexpected error occurred: {e}")
-
-# if __name__ == "__main__":
-#     main()
-
-# # --------------------
-# # Test cases (for pytest)
-
-# def test_calculate_bmi():
-#     assert calculate_bmi(70, 175) == 22.86
-#     assert calculate_bmi(50, 160) == 19.53
-#     assert calculate_bmi(80, 160) == 31.25
-
-# def test_suggest_plan_underweight():
-#     workout, diet = suggest_plan(17.0)
-#     assert "Light" in workout
-#     assert "Eat more" in diet
-
-# def test_suggest_plan_normal():
-#     workout, diet = suggest_plan(22.0)
-#     assert "Brisk" in workout
-#     assert "Balanced" in diet
-
-# def test_suggest_plan_overweight():
-#     workout, diet = suggest_plan(27.0)
-#     assert "Fast" in workout
-#     assert "fiber" in diet
-
-# def test_suggest_plan_obese():
-#     workout, diet = suggest_plan(32.0)
-#     assert "Intense" in workout
-#     assert "Low-fat" in diet
-
-# workout_planner.py
-
 def calculate_bmi(weight, height_cm):
-    """
-    Calculates Body Mass Index (BMI) using weight (kg) and height (cm).
-    Returns the BMI rounded to 2 decimal places.
-    """
-    height_m = height_cm / 100  # Convert cm to meters
+    height_m = height_cm / 100  
     bmi = weight / (height_m ** 2)
     return round(bmi, 2)
 
 def suggest_plan(bmi):
     if bmi < 18.5:
-        return ("Workout: Light walking or yoga (20 mins)", "Diet: Eat more — rice, nuts, milk")
+        return ("Workout: Light walking or yoga (20 mins)", 
+                "Diet: Eat more — rice, nuts, milk")
     elif 18.5 <= bmi < 24.9:
-        return ("Workout: Brisk walk or cycling (30 mins)", "Diet: Balanced meals — fruits, veggies, meat")
+        return ("Workout: Brisk walk or cycling (30 mins)", 
+                "Diet: Balanced meals — fruits, veggies, meat")
     elif 25 <= bmi < 29.9:
-        return ("Workout: Fast walking or jogging (45 mins)", "Diet: Eat less sugar, more fiber")
+        return ("Workout: Fast walking or jogging (45 mins)", 
+                "Diet: Eat less sugar, more fiber")
     else:
-        return ("Workout: Intense workout or gym (60 mins)", "Diet: Low-fat food, avoid junk")
+        return ("Workout: Intense workout or gym (60 mins)", 
+                "Diet: Low-fat food, avoid junk")
+
+def recommend_location(bmi):
+    if bmi < 25:
+        return "Recommendation: You can start with home workouts."
+    else:
+        return "Recommendation: Consider joining a gym for better results."
 
 def main():
-    """
-    Main function to interact with the user and display BMI and recommendations.
-    """
     print("Welcome to the Workout Time Planner!\n")
 
     try:
@@ -100,10 +35,12 @@ def main():
 
         bmi = calculate_bmi(weight, height)
         workout, diet = suggest_plan(bmi)
+        location = recommend_location(bmi)
 
         print(f"\nYour BMI is: {bmi}")
         print(workout)
         print(diet)
+        print(location)
 
     except ValueError as ve:
         print(f"\nInvalid input: {ve}")
@@ -112,4 +49,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
