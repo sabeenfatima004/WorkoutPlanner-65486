@@ -34,5 +34,6 @@ Based on the user's BMI, the app now recommends whether they should work out at 
 - Normal BMI:  Either home or gym
 - Overweight:  Gym workouts recommended for better support
 
+
   
 
